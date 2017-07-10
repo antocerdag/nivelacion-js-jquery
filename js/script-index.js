@@ -61,15 +61,7 @@ function renderActivities(activities) {
 			});
 		}
 	})
-	var userAvatar = $(activities).attr("userAvatar");
-	var userName =  $(activities).attr("userName");
-	var recipeName = $(activities).attr("recipeName");
-	var text = $(activities).attr("text");
-	var place = $(activities).attr("place");
-	var image = $(activities).attr("image");
-	
-	$(".list-activities").append("<a href='#' class= 'item-activity'><span class='attribution'><span class= 'avatar'><img src = '" + userAvatar + "' class='image-avatar'></span><span class = 'meta'><span class='author'>"+userName +"</span> made <span class='recipe'>"+ recipeName +"</span>: "+ text +"<span class= 'location'>&mdash;"+ place +"</span></span></span><div class ='bg-image' style='background-image:url("+ image + ");'></div></a>");
-}
+
 
 /*
 * Función que se encarga de pintar una actividad
@@ -77,7 +69,15 @@ function renderActivities(activities) {
 * archivo "templates/templates-activity.html"
 */
 function renderActivity(recipe) {
+	var userAvatar = $(recipe).attr("userAvatar");
+	var userName =  $(recipe).attr("userName");
+	var recipeName = $(recipe).attr("recipeName");
+	var text = $(recipe).attr("text");
+	var place = $(recipe).attr("place");
+	var image = $(recipe).attr("image");
 	
+	$(".list-activities").append("<a href='#' class= 'item-activity'><span class='attribution'><span class= 'avatar'><img src = '" + userAvatar + "' class='image-avatar'></span><span class = 'meta'><span class='author'>"+userName +"</span> made <span class='recipe'>"+ recipeName +"</span>: "+ text +"<span class= 'location'>&mdash;"+ place +"</span></span></span><div class ='bg-image' style='background-image:url("+ image + ");'></div></a>");
+}
 }
 
 
