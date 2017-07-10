@@ -21,6 +21,12 @@ $(document).ready( function(){
 * marcado el atributo "highlighted" como TRUE
 */
 function renderHighlightedRecipes(recipesArray) {
+	
+	recipesArray.forEach(function(dato){
+		if(dato.highlighted == true){
+			renderRecipe();
+		}
+	})
 	console.log('Recipes: ', recipesArray);
 }
 
