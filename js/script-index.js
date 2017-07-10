@@ -8,6 +8,11 @@ $(document).ready( function(){
 	$(".js-back").hide('fast', function() {
 		
 	});
+
+	function printNews(){
+		$(".callout-news p").append('NUEVAS RECETAS')
+	}
+	printNews();
 });
 
 
