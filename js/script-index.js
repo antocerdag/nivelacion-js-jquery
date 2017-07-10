@@ -2,7 +2,7 @@ $(document).ready( function(){
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
-	renderActivities(activitiesArray);
+	//renderActivities(activitiesArray);
 
 	//Ocultar flecha en index.html 
 	$(".js-back").hide('fast', function() {
@@ -24,7 +24,7 @@ function renderHighlightedRecipes(recipesArray) {
 	
 	recipesArray.forEach(function(dato){
 		if(dato.highlighted == true){
-			renderRecipe();
+			renderRecipe(dato);
 		}
 	})
 	console.log('Recipes: ', recipesArray);
@@ -37,11 +37,9 @@ function renderHighlightedRecipes(recipesArray) {
 * archivo "templates/templates-recipe.html"
 */
 function renderRecipe(recipe) {
-
-	var tituloReceta = $(this).title;
-	var autorReceta = $(this).name;
-	console.log(tituloReceta , autorReceta);
-	$(".list-recipes").append("<a class='item-recipe' href='#'><span class='attribution'><span class='title-recipe'>" + tituloReceta + "</span><span class='metadata-recipe'><span class='author-recipe'>"+ autorReceta + "</span><span class='bookmarks-recipe'><span class='icon-bookmark'></span></span></span></span><img src='img/recipes/640x800/spring-fromage-fort.jpg' /></a>");
+	
+		$(".list-recipes").append("<a class='item-recipe' href='#'><span class='attribution'><span class='title-recipe'>"+ $(recipe).attr("title") +"</span><span class='metadata-recipe'><span class='author-recipe'>"+ $(recipe).attr("name") +"</span><span class='bookmarks-recipe'><span class='icon-bookmark'></span></span></span></span><img src= 'img/recipes/640x800/" + $(recipe).attr("name") +".jpg'></a>")
+	
 	
 	console.log('Voy a pintar la receta: ', recipe);
 }
@@ -52,6 +50,23 @@ function renderRecipe(recipe) {
 * Función que se encarga de pintar todas las actividades
 */
 function renderActivities(activitiesArray) {
+	$.ajax({
+		url: 'data/activities.js',
+		type: 'GET',
+		dataType: 'json',
+		data: {param1: 'value1'},
+	})
+	.done(function() {
+		console.log("success");
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+
 	/*activitiesArray.forEach(function(data){
 
 	})*/
