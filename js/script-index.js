@@ -61,7 +61,14 @@ function renderActivities(activities) {
 			});
 		}
 	})
-	console.log('Activities: ', activities);
+	var userAvatar = $(activities).attr("userAvatar");
+	var userName =  $(activities).attr("userName");
+	var recipeName = $(activities).attr("recipeName");
+	var text = $(activities).attr("text");
+	var place = $(activities).attr("place");
+	var image = $(activities).attr("image");
+	
+	$(".list-activities").append("<a href='#' class= 'item-activity'><span class='attribution'><span class= 'avatar'><img src = '" + userAvatar + "' class='image-avatar'></span><span class = 'meta'><span class='author'>"+userName +"</span> made <span class='recipe'>"+ recipeName +"</span>: "+ text +"<span class= 'location'>&mdash;"+ place +"</span></span></span><div class ='bg-image' style='background-image:url("+ image + ");'></div></a>");
 }
 
 /*
