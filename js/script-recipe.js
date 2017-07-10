@@ -45,3 +45,12 @@ function makeRecipe(recipes){
 	
 	
 }
+
+function urlReceta(recipes){
+
+	$(".js-open").click(function(url){
+		var url = $(recipe).attr("source");
+		var urlFinal = url.attr("url");
+		$(".js-open").attr("href", "url");
+	})
+}
