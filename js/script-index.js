@@ -2,7 +2,7 @@ $(document).ready( function(){
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
-	//renderActivities(activitiesArray);
+	renderActivities(activities);
 
 	//Ocultar flecha en index.html 
 	$(".js-back").hide('fast', function() {
@@ -49,28 +49,18 @@ function renderRecipe(recipe) {
 /*
 * Función que se encarga de pintar todas las actividades
 */
-function renderActivities(activitiesArray) {
-	$.ajax({
-		url: 'data/activities.js',
-		type: 'GET',
-		dataType: 'json',
-		data: {param1: 'value1'},
-	})
-	.done(function() {
-		console.log("success");
-	})
-	.fail(function() {
-		console.log("error");
-	})
-	.always(function() {
-		console.log("complete");
-	});
-	
+function renderActivities(activities) {
 
-	/*activitiesArray.forEach(function(data){
 
-	})*/
-	console.log('Activities: ', activitiesArray);
+	activities.forEach(function(data){
+		renderActivity(data);
+		if(activities.length > 0){
+			$(".wrapper-message").hide('400', function() {
+				
+			});
+		}
+	})
+	console.log('Activities: ', activities);
 }
 
 /*
