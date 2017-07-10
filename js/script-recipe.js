@@ -5,16 +5,24 @@ $(document).ready(function() {
 	$(".js-menu").hide('fast', function() {
 		
 	}); 
-	showRecipe(recipes);
-
+	showRecipe(recipesArray);
+	makeRecipe(recipesArray);
+	
 });
 
 
 function showRecipe(recipes){
-	var titulo = $(recipe).attr("title");
-	var ingredientes = $(recipe).attr("ingredients");
+	var titulo = $(recipesArray).attr("title");
+	var ingredientes = $(recipesArray).attr("ingredients");
 
 	$(".js-show-recipe").click(function(e) {
 		$(".list-ingredients").append("<li class='item-ingredient'>"+ ingredientes + "</li>")
+	});
+}
+
+function makeRecipe(recipes){
+	var make = $(recipesArray).attr("directions");
+	$(".js-show-make").click(function(event) {
+		$(".list-directions .item-direction").append(make);
 	});
 }
