@@ -20,6 +20,10 @@ function showRecipe(recipes){
 		$(".js-show-recipe").click(function() {
 			$(".list-ingredients").append("<li class='item-ingredient'>"+ ingredientes + "</li>")
 			$(".page").removeClass('make');
+			//agrego clase active al div js-show-recipe
+			$(".js-show-recipe").addClass('active');
+			//elimino clase active al div js-show-make
+			$(".js-show-make").removeClass('active');
 		});
 	})
 	
@@ -32,6 +36,10 @@ function makeRecipe(recipes){
 		$(".js-show-make").click(function() {
 			$(".list-directions ").append("<li class='item-direction'>" + make + "</li>");
 			$(".page").addClass('make');
+			//agrego clase active al div js-show-make
+			$(".js-show-make").addClass('active');
+			//le quito clase active al div js-show-recipe
+			$(".js-show-recipe").removeClass('active');
 		});
 	})
 	
